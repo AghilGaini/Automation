@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterSite.master.cs" Inherits="Automation.MasterSite" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>اتوماسیون اداری</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/Styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Styles/toastr.min.css" />
+    <link rel="stylesheet" href="~/Styles/style.css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">اتوماسیون</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <%--<li class="active"><a href="#">Home</a></li>--%>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" gid="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3">امنیت<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="0DC6B854-3E62-4666-8081-94C8551B81A9" href='<%= ResolveUrl("~") %>Pages/Users.aspx'>کاربران</a></li>
+                            </ul>
+                        </li>
+                       
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">خروج</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <aut:HiddenField ID="hdn" ClientInstanceName="hdn" runat="server" />
+        <input type="hidden" id="hdfRowID" />
+
+        <div>
+            <script type="text/javascript" src='<%= ResolveUrl("~") %>scripts/jquery.min.js'></script>
+            <script type="text/javascript" src='<%= ResolveUrl("~") %>scripts/bootstrap.min.js'></script>
+            <script type="text/javascript" src='<%= ResolveUrl("~") %>scripts/toastr.min.js'></script>
+            <script type="text/javascript" src='<%= ResolveUrl("~") %>scripts/script.js'></script>
+            <asp:ContentPlaceHolder ID="script" runat="server">
+            </asp:ContentPlaceHolder>
+            <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" EnablePageMethods="true">
+            </asp:ScriptManager>
+        </div>
+
+    </form>
+</body>
+</html>
