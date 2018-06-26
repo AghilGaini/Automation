@@ -14,7 +14,7 @@ namespace Automation.Pages
         
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            odsUsers.SelectCommand = Business.FacadeAutomation.GetUsersBusiness().GetAll().SQL;
         }
         
         #endregion
