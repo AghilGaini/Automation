@@ -1,0 +1,6 @@
+1-https://documentation.devexpress.com/AspNet/6769/Common-Concepts/Web-Config-Modifications/ASPxHttpHandlerModule
+
+2-https://www.devexpress.com/Support/Center/Question/Details/T204530/registering-devexpress-assemblies-in-web-config-causes-unrecognized-tag-prefix-warnings
+
+in ghesmat baraye in ast ke dg to har safhe majbor nabashim devexpress ha ro register konim.(ghesmate "page" bayad ezafe shavad va faghat khode "page" kefie nemikhad baghiash
+ro behesh ezafe konim (validaterequest va ...)

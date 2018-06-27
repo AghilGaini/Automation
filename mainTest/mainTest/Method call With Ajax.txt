@@ -1,0 +1,28 @@
+var entity  = {};
+            entity.UserName = $("#username").val();
+            entity.Password = $("#password").val();
+
+            entity = JSON.stringify(entity);
+            $.ajax({
+                type: 'POST',
+                url: '<%= ResolveUrl("~") %>Pages/Login.aspx/CheckLogin',
+                data: JSON.stringify({ info: entity }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).then
+            (
+            function(data)
+            {
+                if (data.d[0] == "0") {
+
+                    //window.location.assign("../Default.aspx");
+                    alert("|OOOOOOOOOK");
+                }
+                else {
+                    alert("fail: " + data.d[1]);
+                }
+            },function(data)
+            {
+                alert("can not connect ");
+            }
+            )

@@ -1,0 +1,27 @@
+<Test:HiddenField ClientInstanceName="hdn" ID="hdn" runat="server" />    ---> in ghesmat bayad toye master site ezafe beshe
+
+hdn.Set("RowID", RowID);  ----> tarigheye meghdar dehi dar client Side
+
+
+
+
+
+var UserID = (this.Master.FindControl("hdn") as WebControls.HiddenField).Get("RowID").ToLong();  -->dar samte server
+
+
+-----------------------------------------------------   Complete Example   --------------------------------------------------------
+
+TreeList.UnselectAll();
+
+            var Clear = Convert.ToInt64((this.Master.FindControl("hdn") as WebControls.HiddenField).Get("Clear"));
+
+            if (Clear == 0)
+                return;
+
+            var RowID = Convert.ToInt64((this.Master.FindControl("hdn") as WebControls.HiddenField).Get("RowID"));
+ 
+            var p = Business.FacadeMainTest.GetRolePrivilegeBusiness().GetByRoleID(RowID);
+
+            var gids = Business.FacadeMainTest.GetPrivilegesBusiness().GetByIDs(p.Select(r => r.PrivilegeID).ToList()).Select(r => r.Gid).ToList();
+
+            gids.ForEach(rp => TreeList.FindNodeByKeyValue(rp.ToString().Replace("-", string.Empty)).Selected = true);

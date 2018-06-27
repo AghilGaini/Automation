@@ -1,0 +1,16 @@
+https://forums.asp.net/t/1117728.aspx?SqlDataSource+together+with+MySql+
+
+-----------------------------------------------------------------------------
+
+
+<asp:SqlDataSource runat="server" ID="odsSearch" ConnectionString="<%$ ConnectionStrings:Automasion %>" />
+
+In Back :
+
+odsSearch.SelectCommand = Business.FacadeAutomasion.GetStatusBusiness().GetAll().SQL;
+
+-------------------------------------------------------------------------------
+OR : 
+https://msdn.microsoft.com/en-us/library/57hkzhy5.aspx
+
+<asp:ObjectDataSource runat="server" ID="odsPrivilges" SelectMethod="GetAllCache" TypeName=" Automation.Pages.Roles" />
