@@ -77,7 +77,7 @@
                 </div>
             </div>
 
-             <div class="row" style="display:none">
+            <div class="row" style="display: none" id="devPass">
                 <div class="col-lg-8 col-md-8 col-sm-8">
                     <input type="password" class="form-control" id="txtPassword" placeholder="رمز عبور" />
                 </div>
@@ -106,21 +106,24 @@
 
         function ShowNewEdit() {
             $("#pnlNewEdit").show(1000);
+
+            if ($("#hdfRowID").val() != "") {
+                $("#devPass").hide();
+            }
         }
 
         function Get(key) {
 
         }
-        
-        function Save()
-        {
+
+        function Save() {
 
         }
 
-        function Cancel()
-        {
+        function Cancel() {
             $("#pnlNewEdit").hide(1000);
             $("#hdfRowID").val("");
+            $("#devPass").hide();
         }
 
     </script>
