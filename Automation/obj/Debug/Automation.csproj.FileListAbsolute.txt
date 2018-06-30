@@ -14,3 +14,4 @@ c:\users\a.gaeini\documents\visual studio 2013\Projects\Automation\Automation\bi
 c:\users\a.gaeini\documents\visual studio 2013\Projects\Automation\Automation\obj\Debug\Automation.csprojResolveAssemblyReference.cache
 c:\users\a.gaeini\documents\visual studio 2013\Projects\Automation\Automation\obj\Debug\Automation.dll
 c:\users\a.gaeini\documents\visual studio 2013\Projects\Automation\Automation\obj\Debug\Automation.pdb
+C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Automation\bin\Newtonsoft.Json.dll

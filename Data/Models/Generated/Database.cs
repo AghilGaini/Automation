@@ -225,6 +225,10 @@ namespace Data.Models.Generated.Automation
 	
 	public static String  IsManager  = @"IsManager";
 	
+	public static String  salt  = @"salt";
+	
+	public static String  Password  = @"Password";
+	
 	}
 
 
@@ -278,6 +282,18 @@ namespace Data.Models.Generated.Automation
 
 
 		[Column] public bool? IsManager { get; set; }
+
+
+
+
+
+		[Column] public Guid? salt { get; set; }
+
+
+
+
+
+		[Column] public string Password { get; set; }
 
 
 

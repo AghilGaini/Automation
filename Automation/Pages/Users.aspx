@@ -107,23 +107,97 @@
         function ShowNewEdit() {
             $("#pnlNewEdit").show(1000);
 
-            if ($("#hdfRowID").val() != "") {
-                $("#devPass").hide();
+            if ($("#hdfRowID").val() == "") {
+                $("#txtPassword").val("");
+                $("#devPass").show();
             }
         }
 
         function Get(key) {
 
+            $.ajax({
+                type: 'POST',
+                url: '<%= ResolveUrl("~") %>Pages/Users.aspx/Get',
+                data: JSON.stringify({ RowID: key }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).then
+            (
+            function (data) {
+                if (data.d[0] == "1") {
+                    var info = JSON.parse(data.d[1])
+
+                    $("#txtUsername").val(info.Username);
+                    $("#txtName").val(info.Name);
+                    $("#txtFamily").val(info.Family);
+                    $("#txtEmail").val(info.Email);
+                    $("#txtAddress").val(info.Address);
+                    $("#txtMobile").val(info.Mobile);
+
+                }
+                else if (data.d[1] == "0") {
+                    ShowError("", "fail: " + data.d[1]);
+                }
+            }, function (data) {
+                ShowError("", "عدم برقراری ارتباط");
+            }
+            )
+
         }
 
         function Save() {
 
+            var entity = {};
+            entity.Username = $("#txtUsername").val();
+            entity.Name = $("#txtName").val();
+            entity.Family = $("#txtFamily").val();
+            entity.Email = $("#txtEmail").val();
+            entity.Address = $("#txtAddress").val();
+            entity.Mobile = $("#txtMobile").val();
+            entity.Password = $("#txtPassword").val();
+            entity.ID = $("#hdfRowID").val() == "" ? 0 : $("#hdfRowID").val();
+
+            entity = JSON.stringify(entity);
+
+            $.ajax({
+                type: 'POST',
+                url: '<%= ResolveUrl("~") %>Pages/Users.aspx/Save',
+                data: JSON.stringify({ info : entity }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).then
+            (
+            function (data) {
+                if (data.d[0] == "1") {
+                    ShowSuccess("", data.d[1]);
+                    grdUsers.Refresh();
+                    Cancel();
+                }
+                else if (data.d[1] == "0") {
+                    ShowError("", "fail: " + data.d[1]);
+                }
+            }, function (data) {
+                ShowError("", "عدم برقراری ارتباط");
+            }
+            )
+        }
+
+        function Clear()
+        {
+            $("#txtUsername").val("");
+            $("#txtName").val("");
+            $("#txtFamily").val("");
+            $("#txtEmail").val("");
+            $("#txtAddress").val("");
+            $("#txtMobile").val("");
+            $("#txtPassword").val("");
         }
 
         function Cancel() {
             $("#pnlNewEdit").hide(1000);
             $("#hdfRowID").val("");
             $("#devPass").hide();
+            Clear();
         }
 
     </script>
