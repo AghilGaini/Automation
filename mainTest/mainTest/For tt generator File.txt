@@ -1,0 +1,16 @@
+public struct Columns
+	{
+	<#
+	foreach(Column col in from c in tbl.Columns where !c.Ignore select c)
+	{		
+	#>
+	public static String  <#=col.PropertyName #>  = @"<#=col.Name#>";
+	<# } #>
+	}
+
+
+
+
+
+
+in ghesmat bayad toye foreach marboot be table ha va bad  az public partial class <#=tbl.ClassName#> ... va ghabl az foreach marboot be column ha ezafe shavad

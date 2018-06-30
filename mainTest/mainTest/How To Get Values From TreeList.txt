@@ -1,0 +1,2 @@
+TreeList.GetSelectedNodeValues("ID Gref Gid",function(gids){alert(gids)},false)
+***dar dakhele ghesmate function mitavanim kari ke mikhahim ra anjam bedahim

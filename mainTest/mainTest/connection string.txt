@@ -1,0 +1,7 @@
+
+https://msdn.microsoft.com/en-us/library/jj653752(v=vs.110).aspx
+
+
+<add name="ConnectionStringName"
+    providerName="System.Data.SqlClient"
+    connectionString="Data Source=ServerName;Initial Catalog=DatabaseName;Integrated Security=False;User Id=userid;Password=password;MultipleActiveResultSets=True" />

@@ -1,0 +1,9 @@
+treeView.UnselectAll();
+
+            var RowID = (this.Master.FindControl("hdn") as WebControls.HiddenField).Get("RowID").ToLong();
+
+            var p = Business.FacadeAutomasion.GetRolePrivilegeBusiness().GetByRoleID(RowID);
+
+            var gids = Business.FacadeAutomasion.GetPrivilegeBusiness().GetByIds(p.Select(r => r.PrivilegeID).ToList()).Select(r => r.gid).ToList();
+
+            gids.ForEach(rp => treeView.FindNodeByKeyValue(rp.ToString().Replace("-", string.Empty)).Selected = true);

@@ -1,0 +1,8 @@
+var values = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Dictionary<string, object>>(info);
+
+var Title = values["Title"].ToString();
+var ID = values["ID"].ToLong();
+
+
+Newtonsoft.Json.JsonConvert.SerializeObject(LevelInfo)    // Add Json Assembeley
+var values = JSON.parse(data.d[1]);

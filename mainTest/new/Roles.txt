@@ -1,0 +1,34 @@
+ var Selected = values["Selected"] as ArrayList;
+                var SelectedItems = new List<long>();
+
+                foreach (var item in Selected)
+                {
+                    var a = item as ArrayList;
+                    var temp = a[1].ToGUID();
+                    while (temp != Guid.Empty)
+                    {
+                        var parent = Business.FacadeAutomasion.GetPrivilegeBusiness().Privileges.Find(r => r.gid == a[1].ToGUID());
+                        if (!SelectedItems.Any(r => r == parent.ID))
+                            SelectedItems.Add(parent.ID);
+                        temp = parent.gref.ToGUID();
+                    }
+                    SelectedItems.Add(a[0].ToLong());
+                }
+
+                RoleInfo.Save();
+
+                var NewPrivilege = new List<Data.Models.Generated.Automasion.RolePrivilege>();
+                foreach (var item in SelectedItems)
+                {
+                    var node = new Data.Models.Generated.Automasion.RolePrivilege();
+                    node.PrivilegeID = item;
+                    node.RoleId = RoleInfo.ID;
+                    NewPrivilege.Add(node);
+                }
+
+                Business.FacadeAutomasion.GetSPBusiness().SP_DeleteOldPrivilege(RoleInfo.ID);
+
+                foreach (var item in NewPrivilege)
+                    item.Save();
+
+                Business.FacadeAutomasion.GetVwUserPrivilegeRoleBusiness().RefreshCache();
