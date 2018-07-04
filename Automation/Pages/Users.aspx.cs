@@ -30,7 +30,7 @@ namespace Automation.Pages
                 var values = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Dictionary<string, object>>(info);
 
                 if (values["Username"].ToString() == "" || values["Name"].ToString() == "" || values["Family"].ToString() == "" || values["Email"].ToString() == "")
-                    return new string[2] { "0", "اطلاعات ورودی کافی نیست" };
+                    throw new Exception("اطلاعات ورودی کافی نیست");
 
                 var Username = values["Username"].ToString();
                 var Name = values["Name"].ToString();
@@ -40,8 +40,8 @@ namespace Automation.Pages
                 var Mobile = values["Mobile"].ToString();
                 var ID = values["ID"].ToLong();
 
-                if(ID == 0 && values["Password"].ToString() == "")
-                    return new string[2] { "0", "اطلاعات ورودی کافی نیست" };
+                if (ID == 0 && values["Password"].ToString() == "")
+                    throw new Exception("اطلاعات ورودی کافی نیست");
 
                 var UserInfo = Business.FacadeAutomation.GetUsersBusiness().GetByID(ID);
 
@@ -55,6 +55,9 @@ namespace Automation.Pages
                 UserInfo.Address = Address;
                 UserInfo.Mobile = Mobile;
                 UserInfo.IsActive = true;
+
+                if (Business.FacadeAutomation.GetUsersBusiness().IsDuplicatedUsername(Username, ID) == true)
+                    throw new Exception("نام کاربری تکراری است");
 
                 if(ID == 0 )
                 {
@@ -81,7 +84,7 @@ namespace Automation.Pages
                 var UserInfo = Business.FacadeAutomation.GetUsersBusiness().GetByID(RowID);
 
                 if (UserInfo == null)
-                    return new string[2] { "0", "موردی پیدا نشد" };
+                    throw new Exception("موردی پیدا نشد");
 
                 var jsonResult = Newtonsoft.Json.JsonConvert.SerializeObject(UserInfo);
 

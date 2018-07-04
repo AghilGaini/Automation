@@ -39,5 +39,14 @@ namespace Business.Automation
                 throw;
             }
         }
+
+        public bool IsDuplicatedUsername(string Username , long ID)
+        {
+            var q = this.GetAll(1);
+            q.And(User.Columns.Username, Username);
+            q.And(User.Columns.ID, CompareFilter.NotEqual ,ID);
+
+            return this.Fetch(q).Any();
+        }
     }
 }

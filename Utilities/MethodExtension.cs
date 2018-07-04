@@ -41,5 +41,17 @@ namespace Utilities
             // Return the hexadecimal string.
             return sBuilder.ToString();
         }
+
+        public static Guid ToGuid(this object s)
+        {
+            try
+            {
+                return Guid.Parse(s.ToString());
+            }
+            catch
+            {
+                return Guid.Empty;
+            }
+        }
     }
 }

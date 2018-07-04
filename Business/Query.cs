@@ -107,19 +107,17 @@ namespace Business
                 if(value != null)
                 {
                     if (comp == CompareFilter.Like || comp == CompareFilter.NotLike)
-                        q.Where(Column + " " + cc + " N'%" + value + "%' ");
+                        q.Where(Column + " " + cc + " N'%" + value.ToString() + "%'", null);
                     else if (comp == CompareFilter.In || comp == CompareFilter.NotIn)
-                        q.Where(Column + " " + cc + " (" + value + ") ");
+                        q.Where(Column + " " + cc + " (@0)", value);
                     else
-                        q.Where(Column + " " + cc + " " + value);
+                        q.Where(Column + " " + cc + " @0", value);
 
                 }
                 else
                 {
                     q.Where(Column + " " + cc);
-                }
-
-                
+                }   
             }
             else
             {
@@ -128,11 +126,11 @@ namespace Business
                 if (value != null)
                 {
                     if (comp == CompareFilter.Like || comp == CompareFilter.NotLike)
-                        q.Append(Column + " " + cc + " N'%" + value + "%' ");
+                        q.Append(Column + " " + cc + " N'%" + value.ToString() + "%'", null);
                     else if (comp == CompareFilter.In || comp == CompareFilter.NotIn)
-                        q.Append(Column + " " + cc + " (" + value + ") ");
+                        q.Append(Column + " " + cc + " (@0)", value);
                     else
-                        q.Append(Column + " " + cc + " " + value);
+                        q.Append(Column + " " + cc + " @0", value);
 
                 }
                 else

@@ -10,7 +10,7 @@ namespace Business.Automation
     public class PrivilegsBusiness : BaseBusiness<Privilge>
     {
         private List<Privilge> _Privileges = new List<Privilge>();
-   
+
         public List<Privilge> Privileges
         {
             get
@@ -27,12 +27,30 @@ namespace Business.Automation
             return Privileges;
         }
 
-        public bool IsNeedUpdate(Privilge p , string Title , Guid? gref)
+        public bool IsNeedUpdate(Privilge p, string Title, Guid? gref)
         {
             if (p.Title != Title || p.Gref != gref)
                 return true;
             return false;
         }
 
+
+        public List<Privilge> GetByIds(List<long> IDs)
+        {
+            try
+            {
+                if (IDs == null || IDs.Count == 0)
+                    return new List<Privilge>();
+
+                var q = this.GetAll();
+                q.And(Privilge.Columns.ID, CompareFilter.In, IDs);
+
+                return this.Fetch(q);
+            }
+            catch 
+            {
+                throw;
+            }
+        }
     }
 }

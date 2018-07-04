@@ -39,7 +39,7 @@ namespace Automation
         }
         public Guid? gref { get; set; }
         public Guid gid { get; set; }
-        public Data.Models.Generated.Automation.User CurrentUser
+        public static Data.Models.Generated.Automation.User CurrentUser
         {
             get
             {
@@ -50,7 +50,10 @@ namespace Automation
             }
             set
             {
-                HttpContext.Current.Session["USER_ID"] = value.ID;
+                if (value != null)
+                    HttpContext.Current.Session["USER_ID"] = value.ID;
+                else
+                    HttpContext.Current.Session["USER_ID"] = null;
             }
         }
 

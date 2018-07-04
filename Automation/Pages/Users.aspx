@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterSite.Master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="Automation.Pages.Users" NeedLogin="false"
+﻿<%@ Page Title="کاربران" Language="C#" MasterPageFile="~/MasterSite.Master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="Automation.Pages.Users"
     gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="0DC6B854-3E62-4666-8081-94C8551B81A9" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -23,7 +23,7 @@
         <div class="panel-heading">جدید ویرایش</div>
         <div class="panel-body">
 
-            <div class="row">
+            <div class="row FieldMargin">
                 <div class="col-lg-8 col-md-8 col-sm-8">
                     <input type="text" class="form-control" id="txtUsername" placeholder="نام کاربری" />
                 </div>
@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row FieldMargin">
                 <div class="col-lg-8 col-md-8 col-sm-8">
                     <input type="text" class="form-control" id="txtName" placeholder="نام" />
                 </div>
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row FieldMargin">
                 <div class="col-lg-8 col-md-8 col-sm-8">
                     <input type="text" class="form-control" id="txtFamily" placeholder="نام خانوادگی" />
                 </div>
@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row FieldMargin">
                 <div class="col-lg-8 col-md-8 col-sm-8">
                     <input type="text" class="form-control" id="txtEmail" placeholder="ایمیل" />
                 </div>
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row FieldMargin">
                 <div class="col-lg-8 col-md-8 col-sm-8">
                     <input type="text" class="form-control" id="txtAddress" placeholder="آدرس" />
                 </div>
@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row FieldMargin">
                 <div class="col-lg-8 col-md-8 col-sm-8">
                     <input type="text" class="form-control" id="txtMobile" placeholder="موبایل" />
                 </div>
@@ -77,7 +77,7 @@
                 </div>
             </div>
 
-            <div class="row" style="display: none" id="devPass">
+            <div class="row FieldMargin" style="display: none" id="devPass">
                 <div class="col-lg-8 col-md-8 col-sm-8">
                     <input type="password" class="form-control" id="txtPassword" placeholder="رمز عبور" />
                 </div>
@@ -110,7 +110,11 @@
             if ($("#hdfRowID").val() == "") {
                 $("#txtPassword").val("");
                 $("#devPass").show();
+                $("#txtUsername").attr('readonly', false);
             }
+            else
+                $("#txtUsername").attr('readonly', true);
+
         }
 
         function Get(key) {
@@ -135,8 +139,8 @@
                     $("#txtMobile").val(info.Mobile);
 
                 }
-                else if (data.d[1] == "0") {
-                    ShowError("", "fail: " + data.d[1]);
+                else if (data.d[0] == "0") {
+                    ShowError("", data.d[1]);
                 }
             }, function (data) {
                 ShowError("", "عدم برقراری ارتباط");
@@ -173,8 +177,8 @@
                     grdUsers.Refresh();
                     Cancel();
                 }
-                else if (data.d[1] == "0") {
-                    ShowError("", "fail: " + data.d[1]);
+                else if (data.d[0] == "0") {
+                    ShowError("", data.d[1]);
                 }
             }, function (data) {
                 ShowError("", "عدم برقراری ارتباط");

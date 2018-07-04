@@ -42,7 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Automation\PrivilegsBusiness.cs" />
+    <Compile Include="Automation\RolePrivilegesBusiness.cs" />
+    <Compile Include="Automation\RolesBusiness.cs" />
+    <Compile Include="Automation\SPBusiness.cs" />
+    <Compile Include="Automation\UserRoleBusiness.cs" />
     <Compile Include="Automation\UsersBusiness.cs" />
+    <Compile Include="Automation\VwUserPrivilegeRoleBusiness.cs" />
     <Compile Include="BaseBusiness.cs" />
     <Compile Include="Business.cs" />
     <Compile Include="Program.cs" />

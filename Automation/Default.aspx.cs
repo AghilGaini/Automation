@@ -29,36 +29,40 @@ namespace Automation
                 bool InsertNew = false;
                 bool Updated = false;
 
-                foreach(var item in MenuItems)
+                if(CurrentUser.IsManager == true)
                 {
-                    var Privileg = Business.FacadeAutomation.GetPrivilegsBusiness().Privileges.Find(r => r.Gid == item.gid);
-
-                    if(Privileg == null)
+                    foreach (var item in MenuItems)
                     {
-                        var p = new Data.Models.Generated.Automation.Privilge
-                        {
-                            Gid = item.gid,
-                            Gref = item.gref,
-                            Title = item.title
-                        };
+                        var Privileg = Business.FacadeAutomation.GetPrivilegsBusiness().Privileges.Find(r => r.Gid == item.gid);
 
-                        p.Save();
-                        Business.FacadeAutomation.GetPrivilegsBusiness().Privileges.Add(p);
-                        InsertNew = true;
-
-                    }
-                    else
-                    {
-                        if(Business.FacadeAutomation.GetPrivilegsBusiness().IsNeedUpdate(Privileg,item.title,item.gref))
+                        if (Privileg == null)
                         {
-                            Privileg.Gref = item.gref;
-                            Privileg.Title = item.title;
-                            Privileg.Save();
-                            Updated = true;
+                            var p = new Data.Models.Generated.Automation.Privilge
+                            {
+                                Gid = item.gid,
+                                Gref = item.gref,
+                                Title = item.title
+                            };
+
+                            p.Save();
+                            Business.FacadeAutomation.GetPrivilegsBusiness().Privileges.Add(p);
+                            InsertNew = true;
+
                         }
-                    }
+                        else
+                        {
+                            if (Business.FacadeAutomation.GetPrivilegsBusiness().IsNeedUpdate(Privileg, item.title, item.gref))
+                            {
+                                Privileg.Gref = item.gref;
+                                Privileg.Title = item.title;
+                                Privileg.Save();
+                                Updated = true;
+                            }
+                        }
 
+                    }
                 }
+                
 
                 if (InsertNew)
                     Result += "حقوق دسترسی جدید ثبت شد";

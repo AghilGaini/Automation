@@ -191,6 +191,144 @@ namespace Data.Models.Generated.Automation
 
     
 
+	[TableName("dbo.RolePrivilges")]
+
+
+
+	[PrimaryKey("ID")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class RolePrivilge : AutomationDB.Record<RolePrivilge>  
+    {
+	public struct Columns
+	{
+	
+	public static String  ID  = @"ID";
+	
+	public static String  RoleID  = @"RoleID";
+	
+	public static String  PrivilegeID  = @"PrivilegeID";
+	
+	}
+
+
+
+		[Column] public long ID { get; set; }
+
+
+
+
+
+		[Column] public long RoleID { get; set; }
+
+
+
+
+
+		[Column] public long PrivilegeID { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.Roles")]
+
+
+
+	[PrimaryKey("ID")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class Role : AutomationDB.Record<Role>  
+    {
+	public struct Columns
+	{
+	
+	public static String  ID  = @"ID";
+	
+	public static String  RoleName  = @"RoleName";
+	
+	public static String  RoleLevel  = @"RoleLevel";
+	
+	}
+
+
+
+		[Column] public long ID { get; set; }
+
+
+
+
+
+		[Column] public string RoleName { get; set; }
+
+
+
+
+
+		[Column] public long RoleLevel { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.UserRole")]
+
+
+
+	[PrimaryKey("ID")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class UserRole : AutomationDB.Record<UserRole>  
+    {
+	public struct Columns
+	{
+	
+	public static String  ID  = @"ID";
+	
+	public static String  UserID  = @"UserID";
+	
+	public static String  RoleID  = @"RoleID";
+	
+	}
+
+
+
+		[Column] public long ID { get; set; }
+
+
+
+
+
+		[Column] public long UserID { get; set; }
+
+
+
+
+
+		[Column] public long RoleID { get; set; }
+
+
+
+	}
+
+    
+
 	[TableName("dbo.Users")]
 
 
@@ -228,6 +366,8 @@ namespace Data.Models.Generated.Automation
 	public static String  salt  = @"salt";
 	
 	public static String  Password  = @"Password";
+	
+	public static String  RoleID  = @"RoleID";
 	
 	}
 
@@ -294,6 +434,78 @@ namespace Data.Models.Generated.Automation
 
 
 		[Column] public string Password { get; set; }
+
+
+
+
+
+		[Column] public long? RoleID { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.VwUserPrivilegeRole")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class VwUserPrivilegeRole : AutomationDB.Record<VwUserPrivilegeRole>  
+    {
+	public struct Columns
+	{
+	
+	public static String  RoleID  = @"RoleID";
+	
+	public static String  RoleLevel  = @"RoleLevel";
+	
+	public static String  Gid  = @"Gid";
+	
+	public static String  UserID  = @"UserID";
+	
+	public static String  Name  = @"Name";
+	
+	public static String  IsActive  = @"IsActive";
+	
+	}
+
+
+
+		[Column] public long RoleID { get; set; }
+
+
+
+
+
+		[Column] public long RoleLevel { get; set; }
+
+
+
+
+
+		[Column] public Guid Gid { get; set; }
+
+
+
+
+
+		[Column] public long UserID { get; set; }
+
+
+
+
+
+		[Column] public string Name { get; set; }
+
+
+
+
+
+		[Column] public bool? IsActive { get; set; }
 
 
 
