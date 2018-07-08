@@ -1,4 +1,4 @@
-﻿<%@ Page Title="نقش ها" Language="C#" MasterPageFile="~/MasterSite.Master" AutoEventWireup="true" CodeBehind="Roles.aspx.cs" Inherits="Automation.Pages.Roles" NeedLogin="false"
+﻿<%@ Page Title="نقش ها" Language="C#" MasterPageFile="~/MasterSite.Master" AutoEventWireup="true" CodeBehind="Roles.aspx.cs" Inherits="Automation.Pages.Roles"
     gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="16A8A08C-4325-4EDD-B568-6A26C0DC9087" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -120,7 +120,7 @@
 
         function Cancel() {
             Clear();
-            $("hdfRowID").val("");
+            $("#hdfRowID").val("");
             hdn.Set("RowID", null);
             $("#pnlNewEdit").hide(1000);
             $("#btnNew").prop('disabled', false);

@@ -9,5 +9,12 @@ namespace Business.Automation
 {
     public class UserRoleBusiness : BaseBusiness<UserRole>
     {
+        public List<UserRole> GetByUserID(long UserID)
+        {
+            var q = this.GetAll();
+            q.And(UserRole.Columns.UserID, UserID);
+
+            return this.Fetch(q);
+        }
     }
 }

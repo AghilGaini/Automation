@@ -53,5 +53,17 @@ namespace Utilities
                 return Guid.Empty;
             }
         }
+
+        public static bool ToBoolean(this object s)
+        {
+            try
+            {
+                return Convert.ToBoolean(s);
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
     <aut:GridView ID="grdUsers" ClientInstanceName="grdUsers" runat="server" KeyFieldName="ID" DataSourceID="OdsUsers" AutoGenerateColumns="false"
-        ClientSideEvents-SelectionChanged="function(s, e){ if (e.isSelected) { $('#hdfRowID').val(s.GetRowKey(e.visibleIndex)); Get($('#hdfRowID').val()); ShowNewEdit();}}">
+        ClientSideEvents-SelectionChanged="function(s, e){ if (e.isSelected) { $('#hdfRowID').val(s.GetRowKey(e.visibleIndex)); hdn.Set('RowID',$('#hdfRowID').val()) ;Get($('#hdfRowID').val()); ShowNewEdit(false);}}">
         <Columns>
             <dx:GridViewDataTextColumn FieldName="Username" Caption="نام کاربری" />
         </Columns>
@@ -15,7 +15,7 @@
     <div class="row CustomMargin">
         <div class="col-lg-11 col-sm-11 col-md-11"></div>
         <div class="col-lg-1 col-sm-1 col-md-1">
-            <button type="button" class="btn btn-primary btn-lg" onclick="ShowNewEdit()">جدید</button>
+            <button type="button" class="btn btn-primary btn-lg" id="btnNewEdit" onclick="ShowNewEdit(true)">جدید</button>
         </div>
     </div>
 
@@ -86,6 +86,22 @@
                 </div>
             </div>
 
+            <div class="panel panel-default text-center">
+                <div class="panel-body">
+                    <span style="align-self: center">انتخاب نقش</span>
+                    <div class="row FieldMargin">
+                        <aut:TreeList ID="TLRoles" ClientInstanceName="TLRoles" runat="server" KeyFieldName="ID"
+                            AutoGenerateColumns="false" Width="100%" OnCustomCallback="TLRoles_CustomCallback" DataSourceID="odsRoles">
+                            <Settings GridLines="Horizontal" SuppressOuterGridLines="true" />
+                            <SettingsBehavior ExpandCollapseAction="NodeDblClick" />
+                            <Columns>
+                                <dx:TreeListTextColumn Caption="عنوان" FieldName="RoleName" />
+                            </Columns>
+                        </aut:TreeList>
+                    </div>
+                </div>
+            </div>
+
             <div class="row CustomMargin">
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <button type="button" class="btn btn-danger btn-lg" onclick="Cancel()">انصراف</button>
@@ -99,13 +115,19 @@
     </div>
 
     <asp:SqlDataSource runat="server" ID="odsUsers" ConnectionString="<%$ ConnectionStrings : Automation %>" />
+    <asp:ObjectDataSource runat="server" ID="odsRoles" SelectMethod="GetAll" TypeName="Automation.Pages.Users" />
+
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
 
     <script type="text/javascript">
 
-        function ShowNewEdit() {
+        function ShowNewEdit(clearKey) {
+
             $("#pnlNewEdit").show(1000);
+
+            $("#btnNewEdit").prop('disabled', true);
 
             if ($("#hdfRowID").val() == "") {
                 $("#txtPassword").val("");
@@ -114,6 +136,11 @@
             }
             else
                 $("#txtUsername").attr('readonly', true);
+
+            hdn.Set('Clear', clearKey);
+
+            if(clearKey == true)
+                TLRoles.PerformCallback();
 
         }
 
@@ -129,14 +156,16 @@
             (
             function (data) {
                 if (data.d[0] == "1") {
-                    var info = JSON.parse(data.d[1])
+                    var Userinfo = JSON.parse(data.d[1])
 
-                    $("#txtUsername").val(info.Username);
-                    $("#txtName").val(info.Name);
-                    $("#txtFamily").val(info.Family);
-                    $("#txtEmail").val(info.Email);
-                    $("#txtAddress").val(info.Address);
-                    $("#txtMobile").val(info.Mobile);
+                    $("#txtUsername").val(Userinfo.Username);
+                    $("#txtName").val(Userinfo.Name);
+                    $("#txtFamily").val(Userinfo.Family);
+                    $("#txtEmail").val(Userinfo.Email);
+                    $("#txtAddress").val(Userinfo.Address);
+                    $("#txtMobile").val(Userinfo.Mobile);
+                    
+                    TLRoles.PerformCallback();
 
                 }
                 else if (data.d[0] == "0") {
@@ -151,25 +180,28 @@
 
         function Save() {
 
-            var entity = {};
-            entity.Username = $("#txtUsername").val();
-            entity.Name = $("#txtName").val();
-            entity.Family = $("#txtFamily").val();
-            entity.Email = $("#txtEmail").val();
-            entity.Address = $("#txtAddress").val();
-            entity.Mobile = $("#txtMobile").val();
-            entity.Password = $("#txtPassword").val();
-            entity.ID = $("#hdfRowID").val() == "" ? 0 : $("#hdfRowID").val();
+            TLRoles.GetSelectedNodeValues('ID', function (selected) {
 
-            entity = JSON.stringify(entity);
+                var entity = {};
+                entity.Username = $("#txtUsername").val();
+                entity.Name = $("#txtName").val();
+                entity.Family = $("#txtFamily").val();
+                entity.Email = $("#txtEmail").val();
+                entity.Address = $("#txtAddress").val();
+                entity.Mobile = $("#txtMobile").val();
+                entity.Password = $("#txtPassword").val();
+                entity.RoleIDs = selected;
+                entity.ID = $("#hdfRowID").val() == "" ? 0 : $("#hdfRowID").val();
 
-            $.ajax({
-                type: 'POST',
-                url: '<%= ResolveUrl("~") %>Pages/Users.aspx/Save',
-                data: JSON.stringify({ info : entity }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json"
-            }).then
+                entity = JSON.stringify(entity);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<%= ResolveUrl("~") %>Pages/Users.aspx/Save',
+                    data: JSON.stringify({ info: entity }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json"
+                }).then
             (
             function (data) {
                 if (data.d[0] == "1") {
@@ -184,10 +216,12 @@
                 ShowError("", "عدم برقراری ارتباط");
             }
             )
+
+            }, false)
+
         }
 
-        function Clear()
-        {
+        function Clear() {
             $("#txtUsername").val("");
             $("#txtName").val("");
             $("#txtFamily").val("");
@@ -201,6 +235,7 @@
             $("#pnlNewEdit").hide(1000);
             $("#hdfRowID").val("");
             $("#devPass").hide();
+            $("#btnNewEdit").prop('disabled', false);
             Clear();
         }
 

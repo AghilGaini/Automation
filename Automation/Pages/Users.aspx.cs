@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,12 +13,12 @@ namespace Automation.Pages
     public partial class Users : BasePage
     {
         #region Events
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             odsUsers.SelectCommand = Business.FacadeAutomation.GetUsersBusiness().GetAll().SQL;
         }
-        
+
         #endregion
 
         #region WebMethod
@@ -29,16 +30,20 @@ namespace Automation.Pages
             {
                 var values = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Dictionary<string, object>>(info);
 
-                if (values["Username"].ToString() == "" || values["Name"].ToString() == "" || values["Family"].ToString() == "" || values["Email"].ToString() == "")
-                    throw new Exception("اطلاعات ورودی کافی نیست");
-
                 var Username = values["Username"].ToString();
                 var Name = values["Name"].ToString();
                 var Family = values["Family"].ToString();
                 var Email = values["Email"].ToString();
                 var Address = values["Address"].ToString();
                 var Mobile = values["Mobile"].ToString();
+                var RoleIDs = values["RoleIDs"] as ArrayList;
                 var ID = values["ID"].ToLong();
+
+                if (Username == "" || Name == "" || Family == "" || Email == "")
+                    throw new Exception("اطلاعات ورودی کافی نیست");
+
+                if (RoleIDs.Count == 0)
+                    throw new Exception("هیچ نقشی انتخاب نشده است");
 
                 if (ID == 0 && values["Password"].ToString() == "")
                     throw new Exception("اطلاعات ورودی کافی نیست");
@@ -59,7 +64,7 @@ namespace Automation.Pages
                 if (Business.FacadeAutomation.GetUsersBusiness().IsDuplicatedUsername(Username, ID) == true)
                     throw new Exception("نام کاربری تکراری است");
 
-                if(ID == 0 )
+                if (ID == 0)
                 {
                     var password = values["Password"].ToString();
                     UserInfo.salt = Guid.NewGuid();
@@ -67,7 +72,28 @@ namespace Automation.Pages
                 }
 
                 UserInfo.Save();
-                
+
+                #region SaveRoles
+
+                var NewUserRole = new List<Data.Models.Generated.Automation.UserRole>();
+
+                foreach(var item in RoleIDs)
+                {
+                    var node = new Data.Models.Generated.Automation.UserRole();
+                    node.UserID = UserInfo.ID;
+                    node.RoleID = item.ToLong();
+                    NewUserRole.Add(node);
+                }
+
+                Business.FacadeAutomation.GetSPBusiness().SP_DeleteOldRoles(UserInfo.ID);
+
+                foreach (var item in NewUserRole)
+                    item.Save();
+
+                #endregion
+
+                Business.FacadeAutomation.GetVwUserPrivilegeRoleBusiness().RefreshCache();
+
                 return new string[2] { "1", "عملیات با موفقیت انجام شد" };
             }
             catch (Exception ex)
@@ -86,9 +112,9 @@ namespace Automation.Pages
                 if (UserInfo == null)
                     throw new Exception("موردی پیدا نشد");
 
-                var jsonResult = Newtonsoft.Json.JsonConvert.SerializeObject(UserInfo);
+                var UserInfojsonResult = Newtonsoft.Json.JsonConvert.SerializeObject(UserInfo);
 
-                return new string[2] { "1", jsonResult };
+                return new string[2] { "1", UserInfojsonResult };
 
             }
             catch (Exception ex)
@@ -96,7 +122,40 @@ namespace Automation.Pages
                 return new string[2] { "0", ex.Message };
             }
         }
-        
+
         #endregion
+
+        #region TreeList
+        protected void TLRoles_CustomCallback(object sender, DevExpress.Web.ASPxTreeList.TreeListCustomCallbackEventArgs e)
+        {
+            TLRoles.UnselectAll();
+
+            var Clear = (this.Master.FindControl("hdn") as WebControls.HiddenField).Get("Clear").ToBoolean();
+
+            if (Clear == true)
+                return;
+
+            var UserID = (this.Master.FindControl("hdn") as WebControls.HiddenField).Get("RowID").ToLong();
+
+            if (UserID == 0)
+                throw new Exception("کاربری پیدا نشد");
+
+            var RoleIDs = Business.FacadeAutomation.GetUserRoleBusiness().GetByUserID(UserID).Select(r => r.RoleID).ToList();
+
+            RoleIDs.ForEach(r => TLRoles.FindNodeByKeyValue(r.ToString().Replace("-", string.Empty)).Selected = true);
+        }
+
+        #endregion
+
+        #region Method
+
+        public List<Data.Models.Generated.Automation.Role> GetAll()
+        {
+            return Business.FacadeAutomation.GetRolesBusiness().GetAllList();
+        }
+
+        #endregion
+
+
     }
 }

@@ -15,3 +15,4 @@ c:\users\a.gaeini\documents\visual studio 2013\Projects\Automation\Automation\ob
 c:\users\a.gaeini\documents\visual studio 2013\Projects\Automation\Automation\obj\Debug\Automation.dll
 c:\users\a.gaeini\documents\visual studio 2013\Projects\Automation\Automation\obj\Debug\Automation.pdb
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Automation\bin\Newtonsoft.Json.dll
+C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Automation\obj\Debug\Automation.dll.licenses

@@ -22,6 +22,15 @@ namespace Automation.Pages {
         protected global::WebControls.GridView grdUsers;
         
         /// <summary>
+        /// TLRoles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebControls.TreeList TLRoles;
+        
+        /// <summary>
         /// odsUsers control.
         /// </summary>
         /// <remarks>
@@ -29,5 +38,14 @@ namespace Automation.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource odsUsers;
+        
+        /// <summary>
+        /// odsRoles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsRoles;
     }
 }

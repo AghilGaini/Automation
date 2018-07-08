@@ -9,7 +9,6 @@ namespace Business.Automation
 {
     public class RolesBusiness : BaseBusiness<Role>
     {
-
         public Role GetByID(long ID)
         {
             try
