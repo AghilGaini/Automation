@@ -22,6 +22,15 @@ namespace Automation.Pages {
         protected global::WebControls.GridView grdUsers;
         
         /// <summary>
+        /// cmbLvel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebControls.ComboBox cmbLvel;
+        
+        /// <summary>
         /// TLRoles control.
         /// </summary>
         /// <remarks>
@@ -47,5 +56,14 @@ namespace Automation.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource odsRoles;
+        
+        /// <summary>
+        /// odsLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource odsLevel;
     }
 }

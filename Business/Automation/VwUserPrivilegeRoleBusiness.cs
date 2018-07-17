@@ -30,5 +30,32 @@ namespace Business.Automation
             _VwUserPrivilegeRole = new List<VwUserPrivilegeRole>();
         }
 
+
+        public List<VwUserPrivilegeRole> GetByUserID(long UserID , bool IsActive = true)
+        {
+            try
+            {
+                return UserPrivilegeRole.FindAll(r => r.UserID == UserID && r.IsActive == IsActive);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public bool HasPrivilege(User user, Guid gid , bool? IsActive = true)
+        {
+            try
+            {
+                if (user.IsManager == true)
+                    return true;
+
+                return UserPrivilegeRole.Any(r => r.UserID == user.ID && r.Gid == gid && r.IsActive == IsActive);
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

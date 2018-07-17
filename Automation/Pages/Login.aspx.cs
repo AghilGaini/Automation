@@ -33,19 +33,19 @@ namespace Automation.Pages
                 var Password = values["Password"].ToString();
 
                 if (Username == "" || Password == "")
-                    throw new Exception("اطلاعات ورودی کافی نیست");
+                    throw new Exception(Resources.Texts.NotEnoughEntry);
 
                 var Userinfo = Business.FacadeAutomation.GetUsersBusiness().GetByUsername(Username);
 
                 if (Userinfo == null)
-                    throw new Exception("کاربری پیدا نشد");
+                    throw new Exception(Resources.Texts.UserNotFound);
 
                 if (Userinfo.Password != MethodExtension.GetMd5Hash(Password + Userinfo.salt))
-                    throw new Exception("رمز عبور اشباه است");
+                    throw new Exception(Resources.Texts.IncorrectPassword);
 
                 CurrentUser = Userinfo;
 
-                return new string[2] { "1", "Success" };
+                return new string[2] { "1", Resources.Texts.Success };
             }
             catch (Exception ex)
             {

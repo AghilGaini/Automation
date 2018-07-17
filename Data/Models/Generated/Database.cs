@@ -137,6 +137,44 @@ namespace Data.Models.Generated.Automation
 
     
 
+	[TableName("dbo.Levels")]
+
+
+
+	[PrimaryKey("ID")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class Level : AutomationDB.Record<Level>  
+    {
+	public struct Columns
+	{
+	
+	public static String  ID  = @"ID";
+	
+	public static String  Title  = @"Title";
+	
+	}
+
+
+
+		[Column] public long ID { get; set; }
+
+
+
+
+
+		[Column] public string Title { get; set; }
+
+
+
+	}
+
+    
+
 	[TableName("dbo.Privilges")]
 
 

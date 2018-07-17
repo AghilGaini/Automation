@@ -7,7 +7,7 @@ using DevExpress.Web.ASPxEditors;
 
 namespace WebControls
 {
-    class ComboBox : ASPxComboBox
+    public class ComboBox : ASPxComboBox
     {
         public ComboBox()
         {

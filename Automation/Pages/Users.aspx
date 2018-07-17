@@ -77,6 +77,15 @@
                 </div>
             </div>
 
+            <div class="row FieldMargin">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <aut:ComboBox runat="server" ID="cmbLvel" ClientInstanceName="cmbLevel" DataSourceID="odsLevel" ValueType="System.Int64" ValueField="ID" TextField="Title" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label for="txtLevel">سطح</label>
+                </div>
+            </div>
+
             <div class="row FieldMargin" style="display: none" id="devPass">
                 <div class="col-lg-8 col-md-8 col-sm-8">
                     <input type="password" class="form-control" id="txtPassword" placeholder="رمز عبور" />
@@ -116,6 +125,7 @@
 
     <asp:SqlDataSource runat="server" ID="odsUsers" ConnectionString="<%$ ConnectionStrings : Automation %>" />
     <asp:ObjectDataSource runat="server" ID="odsRoles" SelectMethod="GetAll" TypeName="Automation.Pages.Users" />
+    <asp:SqlDataSource runat="server" ID="odsLevel" ConnectionString="<%$ ConnectionStrings : Automation %>" />
 
 
 </asp:Content>
@@ -139,7 +149,7 @@
 
             hdn.Set('Clear', clearKey);
 
-            if(clearKey == true)
+            if (clearKey == true)
                 TLRoles.PerformCallback();
 
         }
@@ -164,7 +174,7 @@
                     $("#txtEmail").val(Userinfo.Email);
                     $("#txtAddress").val(Userinfo.Address);
                     $("#txtMobile").val(Userinfo.Mobile);
-                    
+
                     TLRoles.PerformCallback();
 
                 }

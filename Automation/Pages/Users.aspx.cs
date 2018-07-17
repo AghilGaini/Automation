@@ -17,6 +17,7 @@ namespace Automation.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             odsUsers.SelectCommand = Business.FacadeAutomation.GetUsersBusiness().GetAll().SQL;
+            odsLevel.SelectCommand = Business.FacadeAutomation.GetLevelsBusiness().GetAll().SQL;
         }
 
         #endregion
@@ -40,13 +41,13 @@ namespace Automation.Pages
                 var ID = values["ID"].ToLong();
 
                 if (Username == "" || Name == "" || Family == "" || Email == "")
-                    throw new Exception("اطلاعات ورودی کافی نیست");
+                    throw new Exception(Resources.Texts.NotEnoughEntry);
 
                 if (RoleIDs.Count == 0)
-                    throw new Exception("هیچ نقشی انتخاب نشده است");
+                    throw new Exception(Resources.Texts.RoleNotFound);
 
                 if (ID == 0 && values["Password"].ToString() == "")
-                    throw new Exception("اطلاعات ورودی کافی نیست");
+                    throw new Exception(Resources.Texts.NotEnoughEntry);
 
                 var UserInfo = Business.FacadeAutomation.GetUsersBusiness().GetByID(ID);
 
@@ -62,7 +63,7 @@ namespace Automation.Pages
                 UserInfo.IsActive = true;
 
                 if (Business.FacadeAutomation.GetUsersBusiness().IsDuplicatedUsername(Username, ID) == true)
-                    throw new Exception("نام کاربری تکراری است");
+                    throw new Exception(Resources.Texts.DuplicatedUsername);
 
                 if (ID == 0)
                 {
@@ -94,7 +95,13 @@ namespace Automation.Pages
 
                 Business.FacadeAutomation.GetVwUserPrivilegeRoleBusiness().RefreshCache();
 
-                return new string[2] { "1", "عملیات با موفقیت انجام شد" };
+                #region SaveLevel
+
+
+
+                #endregion 
+
+                return new string[2] { "1", Resources.Texts.Success };
             }
             catch (Exception ex)
             {
@@ -110,7 +117,7 @@ namespace Automation.Pages
                 var UserInfo = Business.FacadeAutomation.GetUsersBusiness().GetByID(RowID);
 
                 if (UserInfo == null)
-                    throw new Exception("موردی پیدا نشد");
+                    throw new Exception(Resources.Texts.NotFound);
 
                 var UserInfojsonResult = Newtonsoft.Json.JsonConvert.SerializeObject(UserInfo);
 
@@ -138,7 +145,7 @@ namespace Automation.Pages
             var UserID = (this.Master.FindControl("hdn") as WebControls.HiddenField).Get("RowID").ToLong();
 
             if (UserID == 0)
-                throw new Exception("کاربری پیدا نشد");
+                throw new Exception(Resources.Texts.UserNotFound);
 
             var RoleIDs = Business.FacadeAutomation.GetUserRoleBusiness().GetByUserID(UserID).Select(r => r.RoleID).ToList();
 

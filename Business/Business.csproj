@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Automation\LevelsBusiness.cs" />
     <Compile Include="Automation\PrivilegsBusiness.cs" />
     <Compile Include="Automation\RolePrivilegesBusiness.cs" />
     <Compile Include="Automation\RolesBusiness.cs" />

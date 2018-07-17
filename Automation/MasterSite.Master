@@ -16,7 +16,7 @@
 <body>
     <form id="form1" runat="server">
 
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse ">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -24,24 +24,28 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">اتوماسیون</a>
+                    <a class="navbar-brand" href='<%= ResolveUrl("~") %>Pages/Login.aspx'>خروج</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href='<%= ResolveUrl("~") %>Default.aspx'>اتوماسیون</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
                         <%--<li class="active"><a href="#">Home</a></li>--%>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" gid="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3">امنیت<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="0DC6B854-3E62-4666-8081-94C8551B81A9" href='<%= ResolveUrl("~") %>Pages/Users.aspx'>کاربران</a></li>
                                 <li><a gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="16A8A08C-4325-4EDD-B568-6A26C0DC9087" href='<%= ResolveUrl("~") %>Pages/Roles.aspx'>نقش ها</a></li>
+                                <li><a gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="7D22C403-3EC3-4B94-B3BB-DF880D82CC6B" href='<%= ResolveUrl("~") %>Pages/Levels.aspx'>سطوح</a></li>
                                 <li><a gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="51097CED-DDE7-4FEA-B274-1C9915FB91A3" href='<%= ResolveUrl("~") %>Pages/ChangePassword.aspx'>تغییر رمز</a></li>
                             </ul>
                         </li>
                        
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href='<%= ResolveUrl("~") %>Pages/Login.aspx'>خروج</a></li>
-                    </ul>
+
                 </div>
             </div>
         </nav>

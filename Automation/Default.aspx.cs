@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Utilities;
 
 namespace Automation
 {
@@ -13,7 +14,15 @@ namespace Automation
         #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try 
+            {
+                if (Request.QueryString["AccessDenied"] != null && Request.QueryString["AccessDenied"].ToBoolean())
+                    throw new Exception(Resources.Texts.AccessDenied);
+            }
+            catch (Exception ex)
+            {
+                this.ShowException(ex);
+            }
         }
 
         #endregion
@@ -29,7 +38,7 @@ namespace Automation
                 bool InsertNew = false;
                 bool Updated = false;
 
-                if(CurrentUser.IsManager == true)
+                if (CurrentUser.IsManager == true)
                 {
                     foreach (var item in MenuItems)
                     {
@@ -62,18 +71,58 @@ namespace Automation
 
                     }
                 }
-                
+
 
                 if (InsertNew)
-                    Result += "حقوق دسترسی جدید ثبت شد";
+                    Result += Resources.Texts.NewPrivilege;
 
                 if (Updated)
-                    Result += "حقوق دسترسی به روز شد";
+                    Result += Resources.Texts.UpdatePrivilege;
 
-                if(InsertNew || Updated)
+                if (InsertNew || Updated)
                     return new string[2] { "1", Result };
 
                 return new string[2] { "2", Result };
+            }
+            catch (Exception ex)
+            {
+                return new string[2] { "0", ex.Message };
+            }
+        }
+
+        [WebMethod]
+        public static string[] GetPrivilge()
+        {
+            try
+            {
+                if (CurrentUser.IsManager == true)
+                    return new string[2] { "1", Newtonsoft.Json.JsonConvert.SerializeObject(new string[1] { "manager" }) };
+
+                var UserPrivilege = Business.FacadeAutomation.GetVwUserPrivilegeRoleBusiness().GetByUserID(CurrentUser.ID);
+
+                return new string[2] { "1", Newtonsoft.Json.JsonConvert.SerializeObject(UserPrivilege.Select(r => r.Gid).ToList()) };
+            }
+            catch (Exception ex)
+            {
+                return new string[2] { "0", ex.Message };
+            }
+        }
+
+        [WebMethod]
+        public static string[] GetInfo()
+        {
+            try
+            {
+                dynamic MyObject = new System.Dynamic.ExpandoObject();
+
+                MyObject.Username = CurrentUser.Username;
+                MyObject.Name = CurrentUser.Name;
+                MyObject.Family = CurrentUser.Family;
+                MyObject.Address = CurrentUser.Address;
+                MyObject.Email = CurrentUser.Email;
+                MyObject.Mobile = CurrentUser.Mobile;
+
+                return new string[2] { "1", Newtonsoft.Json.JsonConvert.SerializeObject(MyObject) };
             }
             catch (Exception ex)
             {

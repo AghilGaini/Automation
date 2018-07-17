@@ -59,9 +59,35 @@ namespace Automation
 
         protected override void OnLoad(EventArgs e)
         {
+            //without login
             if (NeedLogin && CurrentUser == null)
+            {
                 HttpContext.Current.Response.Redirect("~/Pages/Login.aspx");
+                return;
+            }
+
+            //Login but don't have permision to access to the page
+            if (NeedLogin && !IsDefault && !Business.FacadeAutomation.GetVwUserPrivilegeRoleBusiness().HasPrivilege(CurrentUser, this.gid))
+            {
+                HttpContext.Current.Response.Redirect("~/Default.aspx?AccessDenied=true");
+                return;
+            }
             base.OnLoad(e);
         }
+
+        public void ShowException(Exception ex)
+        {
+            if (ex.Message == "-1000")
+                Response.Redirect("~/Pages/Login.aspx");
+
+            this.ShowUnSucceed(ex.Message);
+        }
+
+        private void ShowUnSucceed(string ErrorMessage)
+        {
+            var j = string.Format("$(document).ready(function() {{ShowError('','{0}'); $('.WaitMask').hide(); }});", ErrorMessage);
+            System.Web.UI.ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowException", j, true);
+        }
+        
     }
 }

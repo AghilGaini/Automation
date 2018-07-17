@@ -64,7 +64,7 @@ namespace Automation.Pages
                 var Selected = values["Selected"] as ArrayList;
 
                 if (RoleName == "" || RoleLevel == 0 || Selected.Count == 0)
-                    throw new Exception("اطلاعات ورودی کافی نیست");
+                    throw new Exception(Resources.Texts.NotEnoughEntry);
 
                 var RoleInfo = Business.FacadeAutomation.GetRolesBusiness().GetByID(RoleID);
 
@@ -115,7 +115,7 @@ namespace Automation.Pages
                 Business.FacadeAutomation.GetVwUserPrivilegeRoleBusiness().RefreshCache();
 
 
-                return new string[2] { "1", "عملیات با موفقیت انجام شد" };
+                return new string[2] { "1", Resources.Texts.Success};
             }
             catch (Exception ex)
             {
@@ -131,7 +131,7 @@ namespace Automation.Pages
                 var RoleInfo = Business.FacadeAutomation.GetRolesBusiness().GetByID(RowID);
 
                 if (RoleInfo == null)
-                    throw new Exception("موردی پیدا نشد");
+                    throw new Exception(Resources.Texts.NotFound);
 
                 var RoleJson = Newtonsoft.Json.JsonConvert.SerializeObject(RoleInfo);
 

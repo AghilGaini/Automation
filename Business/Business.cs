@@ -38,10 +38,16 @@ namespace Business
            return new Automation.VwUserPrivilegeRoleBusiness();
        }
 
+       public static Automation.LevelsBusiness GetLevelsBusiness()
+       {
+           return new Automation.LevelsBusiness();
+       }
+
        public static Automation.SPBusiness GetSPBusiness()
        {
            return new Automation.SPBusiness();
        }
+
 
    }
 }
