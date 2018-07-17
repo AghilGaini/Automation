@@ -405,7 +405,7 @@ namespace Data.Models.Generated.Automation
 	
 	public static String  Password  = @"Password";
 	
-	public static String  RoleID  = @"RoleID";
+	public static String  LevelID  = @"LevelID";
 	
 	}
 
@@ -477,7 +477,7 @@ namespace Data.Models.Generated.Automation
 
 
 
-		[Column] public long? RoleID { get; set; }
+		[Column] public long LevelID { get; set; }
 
 
 

@@ -79,7 +79,7 @@
 
             <div class="row FieldMargin">
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <aut:ComboBox runat="server" ID="cmbLvel" ClientInstanceName="cmbLevel" DataSourceID="odsLevel" ValueType="System.Int64" ValueField="ID" TextField="Title" />
+                    <aut:ComboBox runat="server" ID="cmbLevel" ClientInstanceName="cmbLevel" DataSourceID="odsLevel" ValueType="System.Int64" ValueField="ID" TextField="Title" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <label for="txtLevel">سطح</label>
@@ -174,6 +174,7 @@
                     $("#txtEmail").val(Userinfo.Email);
                     $("#txtAddress").val(Userinfo.Address);
                     $("#txtMobile").val(Userinfo.Mobile);
+                    cmbLevel.SetValue(Userinfo.LevelID == 0 ? "تعریف نشده" : Userinfo.LevelID);
 
                     TLRoles.PerformCallback();
 
@@ -201,6 +202,7 @@
                 entity.Mobile = $("#txtMobile").val();
                 entity.Password = $("#txtPassword").val();
                 entity.RoleIDs = selected;
+                entity.LevelID = cmbLevel.GetValue();
                 entity.ID = $("#hdfRowID").val() == "" ? 0 : $("#hdfRowID").val();
 
                 entity = JSON.stringify(entity);
@@ -239,6 +241,8 @@
             $("#txtAddress").val("");
             $("#txtMobile").val("");
             $("#txtPassword").val("");
+            cmbLevel.SetValue(null);
+            cmbLevel.SetText("انتخاب سطح");
         }
 
         function Cancel() {

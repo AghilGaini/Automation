@@ -38,6 +38,7 @@ namespace Automation.Pages
                 var Address = values["Address"].ToString();
                 var Mobile = values["Mobile"].ToString();
                 var RoleIDs = values["RoleIDs"] as ArrayList;
+                var LevelID = values["LevelID"].ToLong();
                 var ID = values["ID"].ToLong();
 
                 if (Username == "" || Name == "" || Family == "" || Email == "")
@@ -61,6 +62,7 @@ namespace Automation.Pages
                 UserInfo.Address = Address;
                 UserInfo.Mobile = Mobile;
                 UserInfo.IsActive = true;
+                UserInfo.LevelID = LevelID;
 
                 if (Business.FacadeAutomation.GetUsersBusiness().IsDuplicatedUsername(Username, ID) == true)
                     throw new Exception(Resources.Texts.DuplicatedUsername);
@@ -95,11 +97,6 @@ namespace Automation.Pages
 
                 Business.FacadeAutomation.GetVwUserPrivilegeRoleBusiness().RefreshCache();
 
-                #region SaveLevel
-
-
-
-                #endregion 
 
                 return new string[2] { "1", Resources.Texts.Success };
             }

@@ -3,3 +3,4 @@ C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Data\bin\Debu
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Data\bin\Debug\Data.pdb
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Data\obj\Debug\Data.exe
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Data\obj\Debug\Data.pdb
+C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache

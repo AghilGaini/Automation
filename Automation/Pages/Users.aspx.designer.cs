@@ -22,13 +22,13 @@ namespace Automation.Pages {
         protected global::WebControls.GridView grdUsers;
         
         /// <summary>
-        /// cmbLvel control.
+        /// cmbLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WebControls.ComboBox cmbLvel;
+        protected global::WebControls.ComboBox cmbLevel;
         
         /// <summary>
         /// TLRoles control.
