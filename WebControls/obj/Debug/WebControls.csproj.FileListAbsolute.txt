@@ -3,3 +3,4 @@ C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\WebControls\b
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\WebControls\bin\Debug\WebControls.pdb
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\WebControls\obj\Debug\WebControls.exe
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\WebControls\obj\Debug\WebControls.pdb
+C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\WebControls\obj\Debug\WebControls.csprojResolveAssemblyReference.cache

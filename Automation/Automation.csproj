@@ -79,12 +79,14 @@
     <Content Include="Pages\Levels.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Roles.aspx" />
+    <Content Include="Pages\UploadImage.aspx" />
     <Content Include="Pages\Users.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\DragAndDrop.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Styles\toastr.min.css" />
     <Content Include="Web.config">
@@ -136,6 +138,13 @@
     </Compile>
     <Compile Include="Pages\Roles.aspx.designer.cs">
       <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UploadImage.aspx.cs">
+      <DependentUpon>UploadImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UploadImage.aspx.designer.cs">
+      <DependentUpon>UploadImage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>
