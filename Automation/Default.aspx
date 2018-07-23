@@ -10,6 +10,14 @@
         <div class="panel-body">
 
             <div class="row FieldMargin">
+                <div class="col-lg-4 col-md-4 col-sm-1"></div>
+                <div class="col-lg-4 col-md-4 col-sm-1">
+                    <img id="imgProfile" src="Pictures/Profiles/default-profile.png" class="img-circle" alt="عکس پروفایل" width="150" height="150" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-1"></div>
+            </div>
+
+            <div class="row FieldMargin">
                 <div class="col-lg-8 col-md-8 col-sm-8">
                     <label id="lblUsername"></label>
                 </div>
@@ -38,7 +46,7 @@
 
             <div class="row FieldMargin">
                 <div class="col-lg-8 col-md-8 col-sm-8">
-                    <label id="lblEmail"></label>                    
+                    <label id="lblEmail"></label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <label for="txtEmail">ایمیل</label>
@@ -108,7 +116,7 @@
                         ShowSuccess("", data.d[1]);
                     if (data.d[0] == "2")
                         GetPrivilege();
-                        GetInfo();
+                    GetInfo();
                 }
                 else if (data.d[1] == "0") {
                     ShowError("", "fail: " + data.d[1]);
@@ -154,9 +162,8 @@
                     )
         }
 
-        function GetInfo()
-        {
-           
+        function GetInfo() {
+
             $.ajax({
                 type: 'POST',
                 url: '<%= ResolveUrl("~") %>Default.aspx/GetInfo',
@@ -175,6 +182,8 @@
                     $("#lblEmail").text(Userinfo.Email);
                     $("#lblAddress").text(Userinfo.Address);
                     $("#lblMobile").text(Userinfo.Mobile);
+                    debugger;
+                    $("#imgProfile").attr('src', 'Pictures/Profiles/' + Userinfo.PictureUrl);
 
                 }
                 else if (data.d[0] == "0") {

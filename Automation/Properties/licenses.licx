@@ -1,3 +1,5 @@
+DevExpress.Patch.InMemoryPatch, DevExpress.Patch.Common, Version=6.2.0.0, Culture=neutral, PublicKeyToken=7fc7bfca2443de66
+DevExpress.Web.ASPxUploadControl.ASPxUploadControl, DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
 WebControls.ComboBox, WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 WebControls.GridView, WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 WebControls.TreeList, WebControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

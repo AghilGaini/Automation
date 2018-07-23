@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -100,7 +102,22 @@ namespace Automation
 
                 var UserPrivilege = Business.FacadeAutomation.GetVwUserPrivilegeRoleBusiness().GetByUserID(CurrentUser.ID);
 
-                return new string[2] { "1", Newtonsoft.Json.JsonConvert.SerializeObject(UserPrivilege.Select(r => r.Gid).ToList()) };
+                #region GetProfilePicture
+
+
+                var RootPath = HostingEnvironment.MapPath("~/Pictures/Profiles");
+                var FileName = MethodExtension.GetMd5Hash(CurrentUser.salt.ToString() + CurrentUser.ID) + ".*";
+
+                var files = Directory.GetFiles(RootPath, FileName);
+
+                if (files.Count() > 0)
+                    FileName = Path.GetFileName(files[0]);
+                else
+                    FileName = "default-profile.png";
+
+                #endregion
+
+                return new string[3] { "1", Newtonsoft.Json.JsonConvert.SerializeObject(UserPrivilege.Select(r => r.Gid).ToList()), FileName };
             }
             catch (Exception ex)
             {
@@ -121,6 +138,20 @@ namespace Automation
                 MyObject.Address = CurrentUser.Address;
                 MyObject.Email = CurrentUser.Email;
                 MyObject.Mobile = CurrentUser.Mobile;
+
+                #region GetProfilgePictures 
+                var RootPath = HostingEnvironment.MapPath("~/Pictures/Profiles");
+                var FileName = MethodExtension.GetMd5Hash(CurrentUser.salt.ToString() + CurrentUser.ID) + ".*";
+
+                var files = Directory.GetFiles(RootPath, FileName);
+
+                if (files.Count() > 0)
+                    FileName = Path.GetFileName(files[0]);
+                else
+                    FileName = "default-profile.png";
+                #endregion
+
+                MyObject.PictureUrl = FileName;
 
                 return new string[2] { "1", Newtonsoft.Json.JsonConvert.SerializeObject(MyObject) };
             }

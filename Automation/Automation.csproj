@@ -81,12 +81,12 @@
     <Content Include="Pages\Roles.aspx" />
     <Content Include="Pages\UploadImage.aspx" />
     <Content Include="Pages\Users.aspx" />
+    <Content Include="Pictures\Profiles\default-profile.png" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Styles\bootstrap.min.css" />
-    <Content Include="Styles\DragAndDrop.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Styles\toastr.min.css" />
     <Content Include="Web.config">
@@ -180,6 +180,7 @@
       <Name>WebControls</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

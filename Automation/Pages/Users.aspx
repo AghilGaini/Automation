@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="کاربران" Language="C#" MasterPageFile="~/MasterSite.Master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="Automation.Pages.Users"
-    gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="0DC6B854-3E62-4666-8081-94C8551B81A9" %>
+    gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="0DC6B854-3E62-4666-8081-94C8551B81A9" NeedLogin="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -74,6 +74,21 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <label for="txtMobile">موبایل</label>
+                </div>
+            </div>
+
+            <div class="row FieldMargin">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+
+                    <dx:ASPxUploadControl ID="fileUpload" ClientInstanceName="fileUpload" runat="server" UploadMode="Standard"
+                        ShowProgressPanel="true" ShowUploadButton="false" Width="100%" OnFileUploadComplete="fileUpload_FileUploadComplete">
+                        <AdvancedModeSettings EnableMultiSelect="False" />
+                        <ValidationSettings MaxFileSize="4194304" AllowedFileExtensions=".jpg,.jpeg,.png" />
+                    </dx:ASPxUploadControl>
+
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label for="txtLevel">عکس پروفایل</label>
                 </div>
             </div>
 
@@ -218,6 +233,7 @@
             function (data) {
                 if (data.d[0] == "1") {
                     ShowSuccess("", data.d[1]);
+                    aspxUUploadFileClick('body_fileUpload');
                     grdUsers.Refresh();
                     Cancel();
                 }
