@@ -28,7 +28,8 @@
             </div>
 
             <div class="row CustomMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6"></div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <button type="button" class="btn btn-primary btn-lg" onclick="Save()">ذخیره</button>
                 </div>
             </div>

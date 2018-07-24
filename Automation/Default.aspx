@@ -5,78 +5,69 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
     <div class="panel panel-primary">
-        <div class="panel-heading">اطلاعات</div>
+        <div class="panel-heading" >اطلاعات</div>
 
         <div class="panel-body">
 
             <div class="row FieldMargin">
                 <div class="col-lg-4 col-md-4 col-sm-1"></div>
                 <div class="col-lg-4 col-md-4 col-sm-1">
-                    <img id="imgProfile" src="Pictures/Profiles/default-profile.png" class="img-circle" alt="عکس پروفایل" width="150" height="150" />
+                    <img id="imgProfile" src="Pictures/Profiles/default-profile.png" class="img-circle" alt="عکس پروفایل" width="200" height="200" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-1"></div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <label id="lblUsername"></label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtUsername">نام کاربری</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <label id="lblName"></label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtName">نام</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <label id="lblFamily"></label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtFamily">نام خانوادگی</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <label id="lblEmail"></label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtEmail">ایمیل</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <label id="lblAddress"></label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtAddress">آدرس</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <label id="lblMobile"></label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtMobile">موبایل</label>
-                </div>
-            </div>
-
-            <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
-                    <label id="lblLevel"></label>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <label for="txtLevel">سطح</label>
                 </div>
             </div>
 
@@ -149,6 +140,8 @@
                             for (i = 0 ; i < as.length ; i++) {
                                 if ($.inArray($(as[i]).attr('gid').toLowerCase(), result) == -1)
                                     $(as[i]).hide();
+                                if ($(as[i]).text() == 'تغییر مشخصات')
+                                    $(as[i]).show();
                             }
 
                         }
@@ -182,7 +175,6 @@
                     $("#lblEmail").text(Userinfo.Email);
                     $("#lblAddress").text(Userinfo.Address);
                     $("#lblMobile").text(Userinfo.Mobile);
-                    debugger;
                     $("#imgProfile").attr('src', 'Pictures/Profiles/' + Userinfo.PictureUrl);
 
                 }

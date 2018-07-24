@@ -15,8 +15,8 @@
         </aut:GridView>
 
         <div class="row CustomMargin">
-            <div class="col-lg-11 col-sm-11 col-md-11"></div>
-            <div class="col-lg-1 col-sm-1 col-md-1">
+            <div class="col-lg-11 col-sm-11 col-md-11 col-xs-6"></div>
+            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-6">
                 <button type="button" id="btnNew" class="btn btn-primary btn-lg" onclick="ShowNewEdit(1)">جدید</button>
             </div>
         </div>
@@ -28,19 +28,19 @@
         <div class="panel-body">
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <input type="text" class="form-control" id="txtRoleName" placeholder="نام نقش" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtRoleName">نام تقش</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <input type="text" class="form-control" id="txtRoleLevel" placeholder="سطح نقش" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtRoleLevel">سطح نقش</label>
                 </div>
             </div>
@@ -57,10 +57,10 @@
             </div>
 
             <div class="row CustomMargin">
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <button type="button" class="btn btn-danger btn-lg" onclick="Cancel()">انصراف</button>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <button type="button" class="btn btn-primary btn-lg" onclick="Save()">ذخیره</button>
                 </div>
             </div>

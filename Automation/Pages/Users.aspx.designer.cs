@@ -22,15 +22,6 @@ namespace Automation.Pages {
         protected global::WebControls.GridView grdUsers;
         
         /// <summary>
-        /// fileUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxUploadControl.ASPxUploadControl fileUpload;
-        
-        /// <summary>
         /// cmbLevel control.
         /// </summary>
         /// <remarks>

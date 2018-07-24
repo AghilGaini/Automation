@@ -160,27 +160,5 @@ namespace Automation.Pages
 
         #endregion
 
-        #region UploadPicture
-
-        protected void fileUpload_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
-        {
-            if (fileUpload.UploadedFiles.Count() > 0)
-            {
-                var UserID = (this.Master.FindControl("hdn") as WebControls.HiddenField).Get("RowID").ToLong();
-
-                var Userinfo = Business.FacadeAutomation.GetUsersBusiness().GetByID(UserID);
-
-                string sSavePath = "~/Pictures/Profiles/";
-                string resultExtension = Path.GetExtension(e.UploadedFile.FileName);
-                string resultFileName = Path.ChangeExtension(MethodExtension.GetMd5Hash(Userinfo.salt.ToString() + Userinfo.ID), resultExtension);
-                string resultFileUrl = sSavePath + resultFileName;
-                string resultFilePath = MapPath(resultFileUrl);
-                e.UploadedFile.SaveAs(resultFilePath);
-            }
-        }
-
-        #endregion 
-
-
     }
 }

@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="Pages\ChangeInfo.aspx" />
     <Content Include="Pages\ChangePassword.aspx" />
     <Content Include="Pages\Levels.aspx" />
     <Content Include="Pages\Login.aspx" />
@@ -110,6 +111,13 @@
     </Compile>
     <Compile Include="MasterSite.Master.designer.cs">
       <DependentUpon>MasterSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChangeInfo.aspx.cs">
+      <DependentUpon>ChangeInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ChangeInfo.aspx.designer.cs">
+      <DependentUpon>ChangeInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>

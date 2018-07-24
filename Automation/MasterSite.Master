@@ -40,6 +40,7 @@
                                 <li><a gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="0DC6B854-3E62-4666-8081-94C8551B81A9" href='<%= ResolveUrl("~") %>Pages/Users.aspx'>کاربران</a></li>
                                 <li><a gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="16A8A08C-4325-4EDD-B568-6A26C0DC9087" href='<%= ResolveUrl("~") %>Pages/Roles.aspx'>نقش ها</a></li>
                                 <li><a gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="7D22C403-3EC3-4B94-B3BB-DF880D82CC6B" href='<%= ResolveUrl("~") %>Pages/Levels.aspx'>سطوح</a></li>
+                                <li><a gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="C4FAC00C-7613-43B9-805E-7C0A1750DA8B" href='<%= ResolveUrl("~") %>Pages/ChangeInfo.aspx'>تغییر مشخصات</a></li>
                                 <li><a gref="C8C83C74-C989-47F2-9B81-77A3DB2C5EB3" gid="51097CED-DDE7-4FEA-B274-1C9915FB91A3" href='<%= ResolveUrl("~") %>Pages/ChangePassword.aspx'>تغییر رمز</a></li>
                             </ul>
                         </li>

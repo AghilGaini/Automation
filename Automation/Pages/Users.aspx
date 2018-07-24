@@ -13,8 +13,8 @@
     </aut:GridView>
 
     <div class="row CustomMargin">
-        <div class="col-lg-11 col-sm-11 col-md-11"></div>
-        <div class="col-lg-1 col-sm-1 col-md-1">
+        <div class="col-lg-11 col-sm-11 col-md-11 col-xs-6"></div>
+        <div class="col-lg-1 col-sm-1 col-md-1 col-xs-6">
             <button type="button" class="btn btn-primary btn-lg" id="btnNewEdit" onclick="ShowNewEdit(true)">جدید</button>
         </div>
     </div>
@@ -24,88 +24,73 @@
         <div class="panel-body">
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <input type="text" class="form-control" id="txtUsername" placeholder="نام کاربری" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtUsername">نام کاربری</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <input type="text" class="form-control" id="txtName" placeholder="نام" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtName">نام</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <input type="text" class="form-control" id="txtFamily" placeholder="نام خانوادگی" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtFamily">نام خانوادگی</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <input type="text" class="form-control" id="txtEmail" placeholder="ایمیل" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtEmail">ایمیل</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <input type="text" class="form-control" id="txtAddress" placeholder="آدرس" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtAddress">آدرس</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <input type="text" class="form-control" id="txtMobile" placeholder="موبایل" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtMobile">موبایل</label>
                 </div>
             </div>
 
             <div class="row FieldMargin">
-                <div class="col-lg-4 col-md-4 col-sm-4">
-
-                    <dx:ASPxUploadControl ID="fileUpload" ClientInstanceName="fileUpload" runat="server" UploadMode="Standard"
-                        ShowProgressPanel="true" ShowUploadButton="false" Width="100%" OnFileUploadComplete="fileUpload_FileUploadComplete">
-                        <AdvancedModeSettings EnableMultiSelect="False" />
-                        <ValidationSettings MaxFileSize="4194304" AllowedFileExtensions=".jpg,.jpeg,.png" />
-                    </dx:ASPxUploadControl>
-
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <label for="txtLevel">عکس پروفایل</label>
-                </div>
-            </div>
-
-            <div class="row FieldMargin">
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <aut:ComboBox runat="server" ID="cmbLevel" ClientInstanceName="cmbLevel" DataSourceID="odsLevel" ValueType="System.Int64" ValueField="ID" TextField="Title" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtLevel">سطح</label>
                 </div>
             </div>
 
             <div class="row FieldMargin" style="display: none" id="devPass">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <input type="password" class="form-control" id="txtPassword" placeholder="رمز عبور" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtPassword">رمز عبور</label>
                 </div>
             </div>
@@ -127,10 +112,10 @@
             </div>
 
             <div class="row CustomMargin">
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <button type="button" class="btn btn-danger btn-lg" onclick="Cancel()">انصراف</button>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <button type="button" class="btn btn-primary btn-lg" onclick="Save()">ذخیره</button>
                 </div>
             </div>
@@ -233,7 +218,6 @@
             function (data) {
                 if (data.d[0] == "1") {
                     ShowSuccess("", data.d[1]);
-                    aspxUUploadFileClick('body_fileUpload');
                     grdUsers.Refresh();
                     Cancel();
                 }

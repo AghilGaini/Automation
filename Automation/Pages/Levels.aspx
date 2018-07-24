@@ -13,8 +13,8 @@
     </aut:GridView>
 
     <div class="row CustomMargin">
-        <div class="col-lg-11 col-sm-11 col-md-11"></div>
-        <div class="col-lg-1 col-sm-1 col-md-1">
+        <div class="col-lg-11 col-sm-11 col-md-11 col-xs-6"></div>
+        <div class="col-lg-1 col-sm-1 col-md-1 col-xs-6">
             <button type="button" class="btn btn-primary btn-lg" id="btnNewEdit" onclick="ShowNewEdit()">جدید</button>
         </div>
     </div>
@@ -25,19 +25,19 @@
         <div class="panel-body">
 
             <div class="row FieldMargin">
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <input type="text" class="form-control" id="txtTitle" placeholder="نام سطح" />
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <label for="txtTitle">نام سطح</label>
                 </div>
             </div>
 
             <div class="row CustomMargin">
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <button type="button" class="btn btn-danger btn-lg" onclick="Cancel()">انصراف</button>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
                     <button type="button" class="btn btn-primary btn-lg" onclick="Save()">ذخیره</button>
                 </div>
             </div>
