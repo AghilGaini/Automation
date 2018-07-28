@@ -43,6 +43,21 @@ namespace Business
            return new Automation.LevelsBusiness();
        }
 
+       public static Automation.RequestTypesBusiness GetRequestTypesBusiness()
+       {
+           return new Automation.RequestTypesBusiness();
+       }
+
+       public static Automation.RequestTypeDetailBusiness GetRequestTypeDetailBusiness()
+       {
+           return new Automation.RequestTypeDetailBusiness();
+       }
+
+       public static Automation.VwRequestTypeDetailLevelBusiness GetVwRequestTypeDetailLevelBusiness()
+       {
+           return new Automation.VwRequestTypeDetailLevelBusiness();
+       }
+
        public static Automation.SPBusiness GetSPBusiness()
        {
            return new Automation.SPBusiness();

@@ -5,3 +5,4 @@ C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Resources\obj
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Resources\obj\Debug\Resources.csproj.GenerateResource.Cache
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Resources\obj\Debug\Resources.exe
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Resources\obj\Debug\Resources.pdb
+C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Resources\obj\Debug\Resources.csprojResolveAssemblyReference.cache

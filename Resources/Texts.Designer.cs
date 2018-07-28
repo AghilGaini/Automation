@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to این عنوان از قبل وجود دارد.
+        /// </summary>
+        public static string DuplicatedTitle {
+            get {
+                return ResourceManager.GetString("DuplicatedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to نام کاربری تکراری است.
         /// </summary>
         public static string DuplicatedUsername {

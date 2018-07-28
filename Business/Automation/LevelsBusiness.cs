@@ -25,5 +25,13 @@ namespace Business.Automation
 
             return this.Fetch(q).Any();
         }
+
+        public Level GetByTitle(string Title)
+        {
+            var q = this.GetAll(1);
+            q.And(Level.Columns.Title, Title);
+
+            return this.Fetch(q).FirstOrDefault();
+        }
     }
 }

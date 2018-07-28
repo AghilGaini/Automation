@@ -43,11 +43,14 @@
   <ItemGroup>
     <Compile Include="Automation\LevelsBusiness.cs" />
     <Compile Include="Automation\PrivilegsBusiness.cs" />
+    <Compile Include="Automation\RequestTypeDetailBusiness.cs" />
+    <Compile Include="Automation\RequestTypesBusiness.cs" />
     <Compile Include="Automation\RolePrivilegesBusiness.cs" />
     <Compile Include="Automation\RolesBusiness.cs" />
     <Compile Include="Automation\SPBusiness.cs" />
     <Compile Include="Automation\UserRoleBusiness.cs" />
     <Compile Include="Automation\UsersBusiness.cs" />
+    <Compile Include="Automation\VwRequestTypeDetailLevelBusiness.cs" />
     <Compile Include="Automation\VwUserPrivilegeRoleBusiness.cs" />
     <Compile Include="BaseBusiness.cs" />
     <Compile Include="Business.cs" />

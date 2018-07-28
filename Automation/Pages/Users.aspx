@@ -214,20 +214,20 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json"
                 }).then
-            (
-            function (data) {
-                if (data.d[0] == "1") {
-                    ShowSuccess("", data.d[1]);
-                    grdUsers.Refresh();
-                    Cancel();
+                (
+                function (data) {
+                    if (data.d[0] == "1") {
+                        ShowSuccess("", data.d[1]);
+                        grdUsers.Refresh();
+                        Cancel();
+                    }
+                    else if (data.d[0] == "0") {
+                        ShowError("", data.d[1]);
+                    }
+                }, function (data) {
+                    ShowError("", "عدم برقراری ارتباط");
                 }
-                else if (data.d[0] == "0") {
-                    ShowError("", data.d[1]);
-                }
-            }, function (data) {
-                ShowError("", "عدم برقراری ارتباط");
-            }
-            )
+                )
 
             }, false)
 

@@ -63,9 +63,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Fonts\svg\Yekan.svg" />
     <Content Include="MasterSite.Master" />
-    <Content Include="Fonts\Yekan.ttf" />
-    <Content Include="Fonts\B Koodak Bold.ttf" />
+    <Content Include="Fonts\eot\Yekan.eot" />
+    <Content Include="Fonts\ttf\Yekan.ttf" />
+    <Content Include="Fonts\woff\Yekan.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -79,6 +81,7 @@
     <Content Include="Pages\ChangePassword.aspx" />
     <Content Include="Pages\Levels.aspx" />
     <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\RequestType.aspx" />
     <Content Include="Pages\Roles.aspx" />
     <Content Include="Pages\UploadImage.aspx" />
     <Content Include="Pages\Users.aspx" />
@@ -139,6 +142,13 @@
     </Compile>
     <Compile Include="Pages\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RequestType.aspx.cs">
+      <DependentUpon>RequestType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RequestType.aspx.designer.cs">
+      <DependentUpon>RequestType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Roles.aspx.cs">
       <DependentUpon>Roles.aspx</DependentUpon>

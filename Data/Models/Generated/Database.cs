@@ -229,6 +229,98 @@ namespace Data.Models.Generated.Automation
 
     
 
+	[TableName("dbo.RequestType")]
+
+
+
+	[PrimaryKey("ID")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class RequestType : AutomationDB.Record<RequestType>  
+    {
+	public struct Columns
+	{
+	
+	public static String  ID  = @"ID";
+	
+	public static String  Title  = @"Title";
+	
+	}
+
+
+
+		[Column] public long ID { get; set; }
+
+
+
+
+
+		[Column] public string Title { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.RequestTypeDetail")]
+
+
+
+	[PrimaryKey("ID")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class RequestTypeDetail : AutomationDB.Record<RequestTypeDetail>  
+    {
+	public struct Columns
+	{
+	
+	public static String  ID  = @"ID";
+	
+	public static String  RequestTypeID  = @"RequestTypeID";
+	
+	public static String  LevelID  = @"LevelID";
+	
+	public static String  Priority  = @"Priority";
+	
+	}
+
+
+
+		[Column] public long ID { get; set; }
+
+
+
+
+
+		[Column] public long RequestTypeID { get; set; }
+
+
+
+
+
+		[Column] public long LevelID { get; set; }
+
+
+
+
+
+		[Column] public long Priority { get; set; }
+
+
+
+	}
+
+    
+
 	[TableName("dbo.RolePrivilges")]
 
 
@@ -478,6 +570,64 @@ namespace Data.Models.Generated.Automation
 
 
 		[Column] public long LevelID { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.VwRequestTypeDetailLevel")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class VwRequestTypeDetailLevel : AutomationDB.Record<VwRequestTypeDetailLevel>  
+    {
+	public struct Columns
+	{
+	
+	public static String  ID  = @"ID";
+	
+	public static String  LevelTitle  = @"LevelTitle";
+	
+	public static String  RequestTypeID  = @"RequestTypeID";
+	
+	public static String  Priority  = @"Priority";
+	
+	public static String  RequestTypeTitle  = @"RequestTypeTitle";
+	
+	}
+
+
+
+		[Column] public long ID { get; set; }
+
+
+
+
+
+		[Column] public string LevelTitle { get; set; }
+
+
+
+
+
+		[Column] public long RequestTypeID { get; set; }
+
+
+
+
+
+		[Column] public long Priority { get; set; }
+
+
+
+
+
+		[Column] public string RequestTypeTitle { get; set; }
 
 
 

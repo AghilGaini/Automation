@@ -123,6 +123,9 @@
   <data name="DuplicatedLevel" xml:space="preserve">
     <value>نام سطح نمیتواند تکراری باشد</value>
   </data>
+  <data name="DuplicatedTitle" xml:space="preserve">
+    <value>این عنوان از قبل وجود دارد</value>
+  </data>
   <data name="DuplicatedUsername" xml:space="preserve">
     <value>نام کاربری تکراری است</value>
   </data>

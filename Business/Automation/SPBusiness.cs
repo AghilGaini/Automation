@@ -24,5 +24,14 @@ namespace Business.Automation
             return false;
 
         }
+
+        public bool SP_DeleteOldTypeDetails(long TypeID)
+        {
+            var result = new PetaPoco.Database(this._ConnectionStringName).Execute(";EXEC dbo.SP_DeleteOldTypeDetails @@TypeID= @0", TypeID);
+            if (result > 0)
+                return true;
+            return false;
+
+        }
     }
 }
