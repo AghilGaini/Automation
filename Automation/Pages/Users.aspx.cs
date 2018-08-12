@@ -32,7 +32,7 @@ namespace Automation.Pages
             {
                 var values = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Dictionary<string, object>>(info);
 
-                var Username = values["Username"].ToString();
+                var Username = values["Username"].ToString().ToLower();
                 var Name = values["Name"].ToString();
                 var Family = values["Family"].ToString();
                 var Email = values["Email"].ToString();

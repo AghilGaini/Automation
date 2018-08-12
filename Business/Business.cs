@@ -58,6 +58,16 @@ namespace Business
            return new Automation.VwRequestTypeDetailLevelBusiness();
        }
 
+       public static Automation.RequestDocumentsBusiness GetRequestDocumentsBusiness()
+       {
+           return new Automation.RequestDocumentsBusiness();
+       }
+
+       public static Automation.VwRequestFullInformationBusiness GetVwRequestFullInformationBusiness()
+       {
+           return new Automation.VwRequestFullInformationBusiness();
+       }
+
        public static Automation.SPBusiness GetSPBusiness()
        {
            return new Automation.SPBusiness();

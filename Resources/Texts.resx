@@ -120,6 +120,9 @@
   <data name="AccessDenied" xml:space="preserve">
     <value>نمیتوانید به این صفحه دسترسی داشته باشید</value>
   </data>
+  <data name="CanNotCreateThisRequest" xml:space="preserve">
+    <value>نمیتوانید این درخواست را ایجاد کنید</value>
+  </data>
   <data name="DuplicatedLevel" xml:space="preserve">
     <value>نام سطح نمیتواند تکراری باشد</value>
   </data>
@@ -132,11 +135,17 @@
   <data name="IncorrectPassword" xml:space="preserve">
     <value>رمز عبور اشتباه است</value>
   </data>
+  <data name="IsSentBefore" xml:space="preserve">
+    <value>این درخواست قبلا ارسال شده است</value>
+  </data>
   <data name="LevelNotFound" xml:space="preserve">
     <value>سطحی پیدا نشد</value>
   </data>
   <data name="NewPrivilege" xml:space="preserve">
     <value>حقوق دسترسی جدید ثبت شد</value>
+  </data>
+  <data name="NoLevelForSend" xml:space="preserve">
+    <value>مرحله دیگری برای ارسال وجود ندارد</value>
   </data>
   <data name="NotEnoughEntry" xml:space="preserve">
     <value>اطلاعات ورودی کافی نیست</value>
@@ -146,6 +155,15 @@
   </data>
   <data name="RoleNotFound" xml:space="preserve">
     <value>نقشی پیدا نشد</value>
+  </data>
+  <data name="SameLevelIsSelected" xml:space="preserve">
+    <value>نمیتوانید دو مرحله یکسان را پشت سر هم انتخاب کنید</value>
+  </data>
+  <data name="Status_Created" xml:space="preserve">
+    <value>درخواست ایجاد شده است</value>
+  </data>
+  <data name="Status_Sent" xml:space="preserve">
+    <value>درخواست ارسال شده است</value>
   </data>
   <data name="Success" xml:space="preserve">
     <value>عملیات موفق</value>

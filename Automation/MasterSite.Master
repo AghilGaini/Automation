@@ -58,6 +58,17 @@
                        
                     </ul>
 
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" gid="A226246D-C7EB-49D4-AE4D-78C505DC5FE9">درخواست<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a gref="A226246D-C7EB-49D4-AE4D-78C505DC5FE9" gid="4022C2BE-5509-4C54-9A17-51E9FB10AD45" href='<%= ResolveUrl("~") %>Pages/SubmitRequest.aspx'>ثبت درخواست</a></li>
+                            </ul>
+                        </li>
+                       
+                    </ul>
+
                 </div>
             </div>
         </nav>
@@ -75,6 +86,7 @@
             <script type="text/javascript" src='<%= ResolveUrl("~") %>scripts/bootstrap.min.js'></script>
             <script type="text/javascript" src='<%= ResolveUrl("~") %>scripts/toastr.min.js'></script>
             <script type="text/javascript" src='<%= ResolveUrl("~") %>scripts/script.js'></script>
+            <script type="text/javascript" src='<%= ResolveUrl("~") %>scripts/security.js'></script>
             <asp:ContentPlaceHolder ID="script" runat="server">
             </asp:ContentPlaceHolder>
             <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" EnablePageMethods="true">

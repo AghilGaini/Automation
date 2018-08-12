@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to نمیتوانید این درخواست را ایجاد کنید.
+        /// </summary>
+        public static string CanNotCreateThisRequest {
+            get {
+                return ResourceManager.GetString("CanNotCreateThisRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to نام سطح نمیتواند تکراری باشد.
         /// </summary>
         public static string DuplicatedLevel {
@@ -106,6 +115,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to این درخواست قبلا ارسال شده است.
+        /// </summary>
+        public static string IsSentBefore {
+            get {
+                return ResourceManager.GetString("IsSentBefore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to سطحی پیدا نشد.
         /// </summary>
         public static string LevelNotFound {
@@ -120,6 +138,15 @@ namespace Resources {
         public static string NewPrivilege {
             get {
                 return ResourceManager.GetString("NewPrivilege", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مرحله دیگری برای ارسال وجود ندارد.
+        /// </summary>
+        public static string NoLevelForSend {
+            get {
+                return ResourceManager.GetString("NoLevelForSend", resourceCulture);
             }
         }
         
@@ -147,6 +174,33 @@ namespace Resources {
         public static string RoleNotFound {
             get {
                 return ResourceManager.GetString("RoleNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نمیتوانید دو مرحله یکسان را پشت سر هم انتخاب کنید.
+        /// </summary>
+        public static string SameLevelIsSelected {
+            get {
+                return ResourceManager.GetString("SameLevelIsSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to درخواست ایجاد شده است.
+        /// </summary>
+        public static string Status_Created {
+            get {
+                return ResourceManager.GetString("Status_Created", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to درخواست ارسال شده است.
+        /// </summary>
+        public static string Status_Sent {
+            get {
+                return ResourceManager.GetString("Status_Sent", resourceCulture);
             }
         }
         

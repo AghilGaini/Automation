@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterSite.Master" AutoEventWireup="true" CodeBehind="RequestType.aspx.cs" Inherits="Automation.Pages.RequestType"
+﻿<%@ Page Title="نوع درخواست" Language="C#" MasterPageFile="~/MasterSite.Master" AutoEventWireup="true" CodeBehind="RequestType.aspx.cs" Inherits="Automation.Pages.RequestType"
     gref="6E4A466B-0BB7-4179-95DC-B7A3AD0B7827" gid="A5F88A38-3C62-4B1A-819E-75DDDA24E1E4" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -80,7 +80,7 @@
         function Selection()
         {
             var last = listLevel.GetItemCount() - 1;
-            if (listLevel.GetItemCount() == 0 || ( listLevel.GetItem(last).value != cmbLevels.GetValue() && listLevel.GetItem(last).text != cmbLevels.GetText() ) )
+            if (listLevel.GetItemCount() == 0 || (listLevel.GetItem(last).value != cmbLevels.GetValue() && listLevel.GetItem(last).text != cmbLevels.GetText() && cmbLevels.GetText() != 'انتخاب'))
                 listLevel.AddItem(cmbLevels.GetText(), cmbLevels.GetValue());
         }
 
@@ -119,6 +119,7 @@
                 function (data) {
                     if (data.d[0] == "1") {
                         ShowSuccess("", data.d[1]);
+                        grdRequestType.Refresh();
                         Cancel();
                     }
                     else if (data.d[0] == "0") {

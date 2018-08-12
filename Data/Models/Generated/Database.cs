@@ -229,6 +229,124 @@ namespace Data.Models.Generated.Automation
 
     
 
+	[TableName("dbo.RequestDocument")]
+
+
+
+	[PrimaryKey("ID")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class RequestDocument : AutomationDB.Record<RequestDocument>  
+    {
+	public struct Columns
+	{
+	
+	public static String  ID  = @"ID";
+	
+	public static String  SupervisorID  = @"SupervisorID";
+	
+	public static String  CreatedBy  = @"CreatedBy";
+	
+	public static String  CreatedOn  = @"CreatedOn";
+	
+	public static String  FileID  = @"FileID";
+	
+	public static String  Description  = @"Description";
+	
+	public static String  TypeID  = @"TypeID";
+	
+	public static String  UserID  = @"UserID";
+	
+	public static String  CurrentLevel  = @"CurrentLevel";
+	
+	public static String  LevelPriority  = @"LevelPriority";
+	
+	public static String  Sent  = @"Sent";
+	
+	public static String  Status  = @"Status";
+	
+	}
+
+
+
+		[Column] public long ID { get; set; }
+
+
+
+
+
+		[Column] public long? SupervisorID { get; set; }
+
+
+
+
+
+		[Column] public string CreatedBy { get; set; }
+
+
+
+
+
+		[Column] public string CreatedOn { get; set; }
+
+
+
+
+
+		[Column] public long? FileID { get; set; }
+
+
+
+
+
+		[Column] public string Description { get; set; }
+
+
+
+
+
+		[Column] public long TypeID { get; set; }
+
+
+
+
+
+		[Column] public long UserID { get; set; }
+
+
+
+
+
+		[Column] public long? CurrentLevel { get; set; }
+
+
+
+
+
+		[Column] public long? LevelPriority { get; set; }
+
+
+
+
+
+		[Column] public bool? Sent { get; set; }
+
+
+
+
+
+		[Column] public string Status { get; set; }
+
+
+
+	}
+
+    
+
 	[TableName("dbo.RequestType")]
 
 
@@ -570,6 +688,136 @@ namespace Data.Models.Generated.Automation
 
 
 		[Column] public long LevelID { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.VwRequestFullInoformation")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class VwRequestFullInoformation : AutomationDB.Record<VwRequestFullInoformation>  
+    {
+	public struct Columns
+	{
+	
+	public static String  RequestID  = @"RequestID";
+	
+	public static String  SupervisorID  = @"SupervisorID";
+	
+	public static String  CreatedOn  = @"CreatedOn";
+	
+	public static String  CreatedBy  = @"CreatedBy";
+	
+	public static String  FileID  = @"FileID";
+	
+	public static String  Description  = @"Description";
+	
+	public static String  TypeID  = @"TypeID";
+	
+	public static String  UserID  = @"UserID";
+	
+	public static String  Sent  = @"Sent";
+	
+	public static String  CurrentLevel  = @"CurrentLevel";
+	
+	public static String  LevelID  = @"LevelID";
+	
+	public static String  LevelTitle  = @"LevelTitle";
+	
+	public static String  StatusTitle  = @"StatusTitle";
+	
+	public static String  TypeTitle  = @"TypeTitle";
+	
+	}
+
+
+
+		[Column] public long RequestID { get; set; }
+
+
+
+
+
+		[Column] public long? SupervisorID { get; set; }
+
+
+
+
+
+		[Column] public string CreatedOn { get; set; }
+
+
+
+
+
+		[Column] public string CreatedBy { get; set; }
+
+
+
+
+
+		[Column] public long? FileID { get; set; }
+
+
+
+
+
+		[Column] public string Description { get; set; }
+
+
+
+
+
+		[Column] public long TypeID { get; set; }
+
+
+
+
+
+		[Column] public long UserID { get; set; }
+
+
+
+
+
+		[Column] public bool? Sent { get; set; }
+
+
+
+
+
+		[Column] public long? CurrentLevel { get; set; }
+
+
+
+
+
+		[Column] public long LevelID { get; set; }
+
+
+
+
+
+		[Column] public string LevelTitle { get; set; }
+
+
+
+
+
+		[Column] public string StatusTitle { get; set; }
+
+
+
+
+
+		[Column] public string TypeTitle { get; set; }
 
 
 

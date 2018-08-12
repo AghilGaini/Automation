@@ -29,7 +29,7 @@ namespace Automation.Pages
 
                 var values = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Dictionary<string, object>>(info);
 
-                var Username = values["Username"].ToString();
+                var Username = values["Username"].ToString().ToLower();
                 var Password = values["Password"].ToString();
 
                 if (Username == "" || Password == "")

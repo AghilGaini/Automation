@@ -33,6 +33,12 @@ namespace Automation.Pages
                 var Levels = values["RequestDetail"] as ArrayList;
                 var ID = values["ID"].ToLong();
 
+                for(int i =0 ; i<Levels.Count -1 ;i++)
+                {
+                    if (Levels[i] == Levels[i + 1])
+                        throw new Exception(Resources.Texts.SameLevelIsSelected);
+                }
+
                 var RequestTypeInfo = Business.FacadeAutomation.GetRequestTypesBusiness().GetByID(ID);
 
                 if (RequestTypeInfo == null)

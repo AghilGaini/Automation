@@ -3,3 +3,4 @@ C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Utilities\bin
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Utilities\bin\Debug\Utilities.pdb
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Utilities\obj\Debug\Utilities.exe
 C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Utilities\obj\Debug\Utilities.pdb
+C:\Users\a.gaeini\documents\visual studio 2013\Projects\Automation\Utilities\obj\Debug\Utilities.csprojResolveAssemblyReference.cache

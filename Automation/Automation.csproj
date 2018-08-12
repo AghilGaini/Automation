@@ -83,10 +83,12 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\RequestType.aspx" />
     <Content Include="Pages\Roles.aspx" />
+    <Content Include="Pages\SubmitRequest.aspx" />
     <Content Include="Pages\UploadImage.aspx" />
     <Content Include="Pages\Users.aspx" />
     <Content Include="Pictures\Profiles\default-profile.png" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\security.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\toastr.min.js" />
@@ -156,6 +158,13 @@
     </Compile>
     <Compile Include="Pages\Roles.aspx.designer.cs">
       <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SubmitRequest.aspx.cs">
+      <DependentUpon>SubmitRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SubmitRequest.aspx.designer.cs">
+      <DependentUpon>SubmitRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\UploadImage.aspx.cs">
       <DependentUpon>UploadImage.aspx</DependentUpon>
